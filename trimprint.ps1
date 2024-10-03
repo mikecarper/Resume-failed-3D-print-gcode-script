@@ -122,7 +122,7 @@ if ($index1 -and $index2 -and $index3) {
 	$updatedLines = $lines[0..$index1] + $extralines + "`n" + $lines[$index3..$lines.Count]
 	Write-Host "Total Lines After: $($updatedLines.Count)"
 
-    $newFileName = [IO.Path]::GetFileNameWithoutExtension($selectedFile) + "_modified.gcode"
+$newFileName = [IO.Path]::GetFileNameWithoutExtension($selectedFile) + "_modified.${layerHeight}.gcode"
     $newFilePath = [IO.Path]::Combine([IO.Path]::GetDirectoryName($selectedFile), $newFileName)
 	Write-Host "Save to a new file: $newFilePath"
     $updatedLines | Set-Content -Path $newFilePath
